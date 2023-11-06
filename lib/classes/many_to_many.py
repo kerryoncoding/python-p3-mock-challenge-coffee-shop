@@ -19,12 +19,13 @@ class Coffee:
         # need a list of orders
         # return number of orders for that coffee
         # here....
-
-        # count = 0
-        # return [order for order in Orders if coffee = self.order.coffee]  
-        pass
-    
-    
+        # order_list = []
+        # for order in Order.all:
+        #     if order.coffee == self:
+        #         order_list.append(order)
+        # return order_list
+        return [order for order in Order.all if self == order.coffee]  
+        
     def customers(self):
         pass
     
@@ -55,3 +56,6 @@ class Order:
         self.coffee = coffee
         self.price = price
         Order.all.append(self)
+        
+    def __repr__(self):
+        return f'<customer: {self.customer} coffee: {self.coffee}>'
