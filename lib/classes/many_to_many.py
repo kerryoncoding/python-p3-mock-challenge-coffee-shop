@@ -42,7 +42,14 @@ class Coffee:
         return len(self.orders())
     
     def average_price(self):
-        pass
+        # Returns the average price for a coffee based on its orders
+        # Returns 0 if the coffee has never been ordered
+        # Reminder: you can calculate the average by adding up all the orders prices and dividing by the number of order
+        order_list = []
+        for order in Order.all:
+            if order.coffee == self:
+                order_list.append(order.price)
+        return sum(order_list)/len(order_list)
 
 class Customer:
     all = []
